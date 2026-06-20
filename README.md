@@ -134,7 +134,7 @@ Medical_chatbot/
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/<your-username>/Medical_chatbot.git
+git clone https://github.com/saifullah857/Medical_chatbot.git
 cd Medical_chatbot
 ```
 
