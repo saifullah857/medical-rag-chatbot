@@ -40,6 +40,7 @@
 - [⚙️ Installation](#️-installation)
 - [🔑 Environment Variables](#-environment-variables)
 - [🚀 Usage](#-usage)
+- [💬 Example Questions to Ask](#-example-questions-to-ask)
 - [🎛️ Configuration](#️-configuration)
 - [🗺️ Roadmap](#️-roadmap)
 - [📝 Notes & Limitations](#-notes--limitations)
@@ -185,6 +186,49 @@ This loads every PDF in `data/pdfs/`, chunks it, embeds it, and persists the ind
 streamlit run app.py
 ```
 Then open the local URL Streamlit prints (typically `http://localhost:8501`) and start asking medical questions in the chat box. 💬
+
+---
+
+## 💬 Example Questions to Ask
+
+The knowledge base is *The Gale Encyclopedia of Medicine, 2nd Edition* — a comprehensive A–Z medical reference covering diseases, disorders, tests, procedures, and alternative treatments. Since the chatbot only answers from what's actually in the book, here are some example questions you can try that map well to real entries in the text:
+
+**🦠 Diseases & Conditions**
+- What is cholera and how is it transmitted?
+- What are the symptoms of chronic obstructive pulmonary disease (COPD)?
+- What causes epidermolysis bullosa?
+- What is dysthymic disorder?
+- What is congenital adrenal hyperplasia?
+- What are gallstones and how are they treated?
+
+**☠️ Poisoning & Emergencies**
+- What are the symptoms of carbon monoxide poisoning, from mild to severe?
+- What is decompression sickness (caisson disease)?
+
+**🧪 Diagnosis & Procedures**
+- What is a jejunostomy used for?
+- How does Doppler echocardiography work?
+- What is postural drainage and when is it used?
+- What does fetal monitoring involve during pregnancy?
+
+**💊 Treatment & Pain Management**
+- What does the WHO analgesic ladder recommend for pain management?
+- What is detoxification treatment used for?
+- What is the difference between definition, description, and prognosis sections for a disease entry?
+
+**🌿 Alternative & Complementary Medicine**
+- How is garlic used in alternative medicine?
+- What conditions does chiropractic treatment address?
+- What role does Chinese medicine play in treating chronic illness?
+
+**🧬 Cancer & Genetics**
+- Why is cancer considered a disease of the genes?
+- What role do proteins play in how genes cause disease?
+
+**🩹 Abuse & Domestic Violence**
+- What are the warning signs of domestic violence covered in the encyclopedia?
+
+> 💡 **Tip:** Because retrieval is similarity-based (top-k = 3 chunks), questions phrased close to how the encyclopedia is written — e.g. "What is the definition of X?", "What are the causes and symptoms of X?", "What is the treatment for X?" — tend to retrieve the most relevant passages and produce the most grounded answers.
 
 ---
 

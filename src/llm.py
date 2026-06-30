@@ -4,27 +4,26 @@ import streamlit as st
 import os
 from pathlib import Path
 
+# Load .env (for local development)
 env_path = Path(__file__).resolve().parent.parent / ".env"
+load_dotenv(env_path)
 
-print("Env path:", env_path)
-print("Exists:", env_path.exists())
-
-load_dotenv(dotenv_path=env_path)
-
+# Try Streamlit Secrets first, then .env
 try:
-    api_key = st.secrets["GROQ_API_KEY"]
-    print("Using Streamlit Secret")
+    api_key = st.secrets.get("GROQ_API_KEY")
 except Exception:
-    api_key = os.getenv("GROQ_API_KEY")
-    print("Using .env")
-
-print("API Key:", api_key)
+    api_key = None
 
 if not api_key:
-    raise ValueError("API Key not found")
+    api_key = os.getenv("GROQ_API_KEY")
+
+if not api_key:
+    raise ValueError(
+        "GROQ_API_KEY not found in Streamlit Secrets or .env"
+    )
 
 llm = ChatGroq(
     api_key=api_key,
     model="qwen/qwen3-32b",
-    temperature=0.7,
+    temperature=0.1,
 )
